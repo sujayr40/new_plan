@@ -221,19 +221,23 @@ span
 
 .short_link
 {
+    display: flex;
+    flex-direction: column;
     padding-top: 150px;
     width: 60%;
 }
 
-.short_link a
+.home-img
 {
-    width: 25rem;
-    padding: 1.6rem 1rem;
-    margin-bottom: 3rem;
-    margin-left: 4rem;
-    background-color: rgb(80, 80, 224);
-    box-shadow: 0 0 1rem rgb(80, 80, 224);
-    text-align: center;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--second-bg-color);
+}
+
+.whatsapp-img
+{
+    width: 40px;
 }
 
 .slider 
