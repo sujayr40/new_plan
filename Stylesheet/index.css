@@ -232,7 +232,6 @@ span
     height: 300px;
     display: flex;
     justify-content: center;
-    background-color: var(--second-bg-color);
 }
 
 .whatsapp-img
