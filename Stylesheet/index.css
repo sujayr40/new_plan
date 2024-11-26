@@ -83,9 +83,9 @@ section
 
 .navbar .button
 {
-    background-color: var(--text-color);
+    background-color: var(--maion-color);
     box-shadow: 0 var(--text-color);
-    color: var(--second-bg-color);
+    color: var(--bg-color);
     padding: .7rem 1.3rem;
     margin: 0 2rem;
     margin-left: 6rem;
@@ -93,7 +93,7 @@ section
 
 .navbar .button:hover
 {
-    background-color: var(--maion-color);
+    background-color: #5050e0;
     color: var(--bg-color);
 }
 
