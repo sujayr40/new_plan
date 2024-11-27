@@ -138,9 +138,10 @@ span
 }
 
 .home-content h1{
-    font-size: 5.6rem;
+    font-size: 5rem;
     width: 700;
     line-height: 1.3;
+    color: var(--maion-color);
 }
 
 .home-content p
