@@ -201,16 +201,15 @@ span
     align-items: center;
     column-gap: 3rem;
     padding: 1rem 1rem;
-    background-color: var(--text-color);
-    box-shadow: 0 0 1rem var(--text-color);
-    color: var(--second-bg-color);
+    background-color: var(--maion-color);
+    box-shadow: 0 0 1rem var(--maion-color);
+    color: var(--bg-color);
 }
 
 .home-content .button:hover
 {
     box-shadow: none;
     cursor: pointer;
-    color: var(--maion-color);
 }
 
 .home-content .button i,
