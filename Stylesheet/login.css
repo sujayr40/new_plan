@@ -12,7 +12,7 @@
     --bg-color: #ffffff;
     --second-bg-color: #f2f2f2;
     --text-color: #000000;
-    --maion-color: #ff0000;
+    --maion-color: #12a04d;
 }
 
 body{
@@ -180,7 +180,7 @@ body{
 .toggle{
     background-color: var(--maion-color);
     height: 100%;
-    background: linear-gradient(to right, #e94f4f, var(--maion-color));
+    background: linear-gradient(to right, #12a04d, var(--maion-color));
     color: #fff;
     position: relative;
     left: -100%;
