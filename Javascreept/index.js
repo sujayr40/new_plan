@@ -52,7 +52,7 @@ ScrollReveal().reveal('.home-content p, .about-content, .reverse img, .reverse-t
 
 // ======================== typed js ==================
 const typed = new Typed('.multiple-text', {
-    strings: ['OPERATOR PLAN','OPERATOR VERIFY','BILL CHECK','DTH INFORMATION'],
+    strings: ['CHATBOT SOLUTION','WHATSAPP MESSENGER','E-COMMERCE SMS','WHATSAPP MARTKETING'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
