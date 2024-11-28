@@ -1,186 +1,698 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planfinder</title>
-    <link rel="icon" href="./image/whatsapp-logo.png" type="image/x-icon">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+    --bg-color: #ffffff;
+    --second-bg-color: #daf5d3;
+    --text-color: #000000;
+    --maion-color: #12a04d;
+}
+
+html
+{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body
+{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.blurred
+{
+    filter: blur(2px);
+}
+
+section
+{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo
+{
+    width: 15dvw;
+    padding-left: 20px;
+}
+
+.navbar{
+    padding-right: 20px;
+}
+
+.navbar a
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-left: 2.5rem;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active
+{
+    color: var(--maion-color);
+}
+
+.navbar .button
+{
+    background-color: var(--maion-color);
+    box-shadow: 0 var(--text-color);
+    color: var(--bg-color);
+    padding: .7rem 1.3rem;
+    margin: 0 2rem;
+    margin-left: 6rem;
+}
+
+.navbar .button:hover
+{
+    background-color: #5050e0;
+    color: var(--bg-color);
+}
+
+#menu-icon
+{
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+.home
+{
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-content{
+    width: 40%;
+}
+
+.home-content h3
+{
+    font-size: 3.2rem;
+    width: 700;
+}
+
+.home-content h3:nth-of-type(2)
+{
+    margin-bottom: 2rem;
+}
+
+span
+{
+    color: var(--maion-color);
+}
+
+.home-h3{
+    font-size: 3rem;
+    width: 700;
+}
+
+.home-content h1{
+    font-size: 4rem;
+    width: 700;
+    line-height: 1.3;
+    color: var(--maion-color);
+}
+
+.home-content p
+{
+    font-size: 1.6rem;
+}
+
+.social-media a
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--maion-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--maion-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.social-media a:hover
+{
+    background-color: var(--maion-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--maion-color);
+}
+
+.button
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 1rem 1rem;
+    background-color: var(--maion-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--maion-color);
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.button:hover
+{
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.home-content .button
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 1rem 1rem;
+    background-color: var(--maion-color);
+    box-shadow: 0 0 1rem var(--maion-color);
+    color: var(--bg-color);
+}
+
+.home-content .button:hover
+{
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.home-content .button i,
+.button i
+{
+    font-size: 3rem;
+}
+
+.short_link
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    width: 60%;
+}
+
+.home-img
+{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.pulse 
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #15ee6f;
+    border-radius: 50%;
+}
+
+.pulse span
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    opacity: .8;
+    animation: pulseAnimate 4s ease-out infinite;
+    animation-delay: calc(1s * var(--i)); 
+}
+
+@keyframes pulseAnimate {
+    100% {
+        opacity: 0;
+        transform: scale(5);
+    }
+}
+
+.whatsapp-img
+{
+    position: absolute;
+    place-items: center;
+    width: 40px;
+}
+
+.slider 
+{
+    height: 200px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.slide-track
+{
+    display: flex;
+    width: calc(450px * 9);
+    animation: scroll 40s linear infinite;
+}
+
+.slide-track:hover
+{
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 9));
+    }
+}
+
+.slide 
+{
+    height: 200px;
+    width: 450px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+.slide-img
+{
+    width: 100%;
+    transition: 1s;
+}
+
+.slide-img:hover
+{
+    transform: translateZ(20px);
+}
+
+.about
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--second-bg-color);
+}
+
+.about-img img
+{
+    width: 35vw;
+}
+.heading
+{
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content h2
+{
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3
+{
+    font-size: 2.6rem;
+}
+
+.about-content p
+{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.about-content .button
+{
+    padding: 1rem 2.8rem;
+}
+
+.projects
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.projects h2
+{
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.project-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10rem;
+    padding: 0 10rem;
+}
+
+.project-container img
+{
+    width: 40dvw;
+    border-radius: 2rem;
+}
+
+.reverse{
+    background-color: var(--second-bg-color);
+}
+
+.project-text
+{
+    width: 40dvw;
+    align-self: center;
     
-    <!-- boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- custom css -->
-    <link rel="stylesheet" href="./Stylesheet/index.css">
-</head>
-<body>
-    <!-- header design -->
-    <header class="header" id="header">
-        <a href="./index.html"><img src="./image/wide logo planfinder.png" alt="logo" class="logo"></a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="./index.html">Home</a>
-            <a href="./login.html">Login</a>
-            <a class="button login" href="./login.html">Signup</a>
-        </nav>
-    </header>
+}
 
-    <!-- home section design  -->
-    <section class="home" id="home">
-        <div class="home-content" style="text-transform:uppercase;">
-            <h3>Wellcome to</h3>
-            <h1><i>WHATSBOT SMS</i></h1>
-            <h3>We Provide <br> <span class="multiple-text"></span></h3>
+.project-text h3
+{
+    font-size: 3rem;
+}
 
-            <p><b>Whatsbot SMS provides a platform to easily build chatbots and 
-                services for brands that want to stand.</b></p>
-            <div class="social-media">
-                <a href="#"><i class='bx bxl-facebook' ></i></a>
-                <a href="https://wa.me/7047099970?text=Hello%20I%20am%20interested%20in%20WHATSBOOT SMS.%20Can%20you%20help%20me%20with%20my%20query"><i class='bx bxl-whatsapp' ></i></a>
-                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
-                <a href="#"><i class='bx bxl-linkedin' ></i></a>
-            </div>
-            <a href="./contact.html" class="button">Contact Us <i class='bx bxs-right-arrow-circle'></i></a>
-        </div>
+.project-text h1
+{
+    font-size: 3rem;
+}
 
-        <div class="short_link">
-            <div class="home-img">
-                <div class="pulse">
-                    <span style="--i:0;"></span>
-                    <span style="--i:1;"></span>
-                    <span style="--i:2;"></span>
-                    <span style="--i:3;"></span>
-                </div>
-                <img class="whatsapp-img" src="./image/whatsapp-logo.png" alt="image">
-            </div>
+.project-text p
+{
+    font-size: 1.7rem;
+    padding-bottom: 2rem;
+}
 
-            <!-- infinite scrolling image slide -->
-            <div class="slider" id="slider">
-                <div class="slide-track">
-                    <div class="slide"><img class="slide-img" src="./image/L1.png" alt="Image1"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L2.png" alt="Image2"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L3.png" alt="Image3"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L4.png" alt="Image4"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L5.png" alt="Image5"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L6.png" alt="Image6"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L7.png" alt="Image7"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L8.png" alt="Image8"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L9.png" alt="Image9"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L10.png" alt="Image10"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L11.png" alt="Image11"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L12.png" alt="Image12"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L13.png" alt="Image13"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L14.png" alt="Image14"></div>
+.model 
+{
+    width: 40dvw;
+    display: none;
+    position: fixed;
+    top: -5%;
+    left: -30%;
+    transform: translate(-50, -50);
+    padding: 1.6rem;
+    background-color: var(--second-bg-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 2rem;
+}
 
-                    <!-- image slide double -->
-                    <div class="slide"><img class="slide-img" src="./image/L1.png" alt="Image1"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L2.png" alt="Image2"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L3.png" alt="Image3"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L4.png" alt="Image4"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L5.png" alt="Image5"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L6.png" alt="Image6"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L7.png" alt="Image7"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L8.png" alt="Image8"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L9.png" alt="Image9"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L10.png" alt="Image10"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L11.png" alt="Image11"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L12.png" alt="Image12"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L13.png" alt="Image13"></div>
-                    <div class="slide"><img class="slide-img" src="./image/L14.png" alt="Image14"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+.about-content .model
+{
+    width: 80dvw;
+    left: -80%;
+    text-align: center;
+}
 
-    <!-- about section design -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="./image/1.png" alt="">
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Us</span></h2>
-            <h3>PLAN FINDER</h3>
-            <p>At PLAN FINDER, we believe that great digital experiences start with a vision and end with flawless execution. Our team of seasoned professionals brings together a wealth of expertise in Operator Plan, Operator Verify, Bill Check, DTH Information to help you achieve your digital goals. With a commitment to excellence and a passion for innovation, we're dedicated to delivering results that exceed your expectations and propel your PLAN FINDER to new heights.</p>
-            <a href="#service" class="button">Read More</a>
-        </div>
-    </section>
 
-    <!-- services section design -->
-    <div class="projects">
-        <h2 class="heading">Our <span>Services!</span></h2>
 
-        <div class="project-container">
-            <div class="project-text">
-                <h3 class="title">Best Service Guaranteed. Our Provided Information Is 99.9% Correct.</h3>
-            </div>
+/* BREAKPOINTS */
 
-            <div class="project-text reverse-text">
-                <p>Unlock a World of Convenient Services with PLAN FINDER - Enjoy KYC Verification, DTH Information, Operator Plan and Verification, Bill Checks, and More - All Completely Free! Try our Trial Offer with No Hit Limit and Experience the Benefits Today.
-                </p>
-            </div>
-        </div>
+@media (max-width: 1600px) {
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
 
-        <div class="project-container">
-            <img src="./image/2.png" alt="Image">
-            <div class="project-text reverse-text">
-             <h3 class="title"><span>Kyc API</span></h3>
-                <p>Experience Hassle-Free KYC Verification with PLAN FINDER - We Offer Accurate and Reliable Verification 
-                    Services for Aadhar Card, PAN Card, RC, GST, Voter ID, Passports, and Driving License. With a 99.99% Accuracy 
-                    Rate, Our Services Are Fully Protected and Secure, Giving You Peace of Mind and Confidence in Your Business 
-                    Transactions.
-                </p>
-                <a class="button" href="#">Read More<i class='bx bxs-right-arrow-circle'></i></a>
-            </div>
-        </div>
+    .project-container {
+        column-gap: 5rem;
+    }
+}
 
-        <div class="project-container reverse">
-            <div class="project-text">
-                <h3 class="title"><span>Recharge API</span></h3>
-                   <p>Experience Ultimate Convenience with PLAN FINDER's Recharge API - Check Your Plan, Operator and Operator 
-                    Circle, Transaction History (Airtel & Vodaphone), and Next Due Date! Our API is Secure, Reliable, and 
-                    User-Friendly, Making It Easy to Recharge Your Mobile, DTH, and Other Devices Effortlessly. Simplify 
-                    Your Life with PLAN FINDER.
-                   </p>
-                   <a class="button" href="#">Read More<i class='bx bxs-right-arrow-circle'></i></a>
-               </div>
-            <img src="./image/3.png" alt="Image">
-        </div>
+.project-container img {
+    max-width: 100%;
+    height: auto;
+}
 
-        <div class="project-container">
-            <img src="./image/4.png" alt="Image">
-            <div class="project-text reverse-text">
-                <h3 class="title"><span>Bill Payment</span></h3>
-                   <p>Effortlessly Pay Your Utility Bills with PLAN FINDER's Bill Payment API - Save Time and Simplify
-                     Your Life. Our API Allows You to Pay for Essential Services Such as Electricity, Water, Gas, and More 
-                     with Ease. Say Goodbye to Long Queues and Hassles - Trust in PLAN FINDER's Secure and Reliable Payment Solutions.
-                   </p>
-                   <a class="button" href="#">Read More<i class='bx bxs-right-arrow-circle'></i></a>
-               </div>
-        </div>
 
-        <div class="project-container reverse">
-            <div class="project-text">
-                <h3 class="title"><span>Mobile Plans</span></h3>
-                   <p>Discover the Best Mobile Recharge Plans and Offers for Prepaid Mobiles - Airtel, Jio, Vodafone Idea, BSNL,
-                     and More with PLAN FINDER. Our Platform Helps You Find the Ideal Plan for Your Needs, Ensuring You Never Miss 
-                     Out on the Latest Offers and Deals. Simplify Your Recharge Process and Save Time with PLAN FINDER
-                   </p>
-                   <a class="button" href="#">Read More<i class='bx bxs-right-arrow-circle'></i></a>
-               </div>
-            <img src="./image/5.png" alt="Image">
-        </div>
-    </div>
+.navbar .button, .button {
+    padding: 1rem 2rem;
+}
 
-    <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
 
-    <!-- typed js -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 3%;
+    }
 
-    <!-- e-Mail sender -->
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    section {
+        padding: 10rem 3% 2rem;
+    }
 
-    <!-- custom js -->
-    <script src="./Javascreept/index.js"></script>
+    .portfolio {
+        padding-bottom: 7rem;
+    }
 
-</body>
-</html>
+    .model,
+    .about-content .model {
+        width: 93dvw;
+        top: 0;
+        left: 0;
+    }
+
+    .model2 {
+        left: -105%;
+    }
+
+    .services {
+        padding-bottom: 7rem;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .logo {
+        width: 30dvw;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        margin-top: 7rem;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .home-content{
+        width: 100%;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img{
+        width: 100%;
+        height: 200px;
+        min-height: 200px;
+    }
+
+    .home-img .whatsapp-img {
+        width: 30px;
+        top: 55px;
+    }
+
+    .short_link {
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    .pulse {
+        width: 70px;
+        height: 70px;
+    }
+
+    @keyframes pulseAnimate {
+        100% {
+            opacity: 0;
+            transform: scale(5);
+        }
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+
+    .about img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about-content .heading {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .projects {
+        overflow: hidden;
+    }
+
+    .project-container {
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+
+    .project-container img
+    {
+        width: 90dvw;
+    }
+    .project-text
+    {
+        width: 90dvw;
+    }
+
+    .reverse {
+        flex-direction: column-reverse;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .project-text h1,
+    .project-text p {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 617px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 580px) {
+    .model2 {
+        left: 0%;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 365px) {
+    .home-img img {
+        width: 90vw;
+    }
+
+    .about-img img {
+        width: 90vw;
+    }
+}
