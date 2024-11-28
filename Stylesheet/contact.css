@@ -567,7 +567,7 @@ span
     }
 
     .logo {
-        width: 20dvw;
+        width: 30dvw;
     }
 
     .navbar {
@@ -601,6 +601,10 @@ span
 
     .contact {
         flex-direction: column-reverse;
+    }
+
+    .leflate {
+        width: 100%;
     }
 
 }
