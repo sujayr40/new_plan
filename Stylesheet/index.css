@@ -507,6 +507,30 @@ span
     .contact {
         min-height: auto;
     }
+
+    .newsletter-layer {
+        margin: 0 6rem;
+    }
+
+    .newsletter-layer h2 {
+        font-size: 2.6rem;
+    }
+
+    .text-layer {
+        width: 30%;
+    }
+
+    .input-layer {
+        width: 70%;
+    }
+
+    .newsletter-layer a {
+        padding: 1.3rem 4rem;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -593,6 +617,7 @@ span
 
     .about {
         flex-direction: column-reverse;
+        overflow: hidden;
     }
 
     .about img {
@@ -603,6 +628,10 @@ span
     .about-content .heading {
         text-align: center;
         margin-bottom: 3rem;
+    }
+
+    .projects {
+        overflow: hidden;
     }
 
     .project-container {
@@ -658,6 +687,43 @@ span
     .contact {
         flex-direction: column-reverse;
     }
+
+    .newsletter-layer {
+        margin: 0 6rem;
+    }
+
+    .newsletter-layer h2 {
+        font-size: 2.6rem;
+    }
+
+    .text-layer {
+        width: 30%;
+    }
+
+    .input-layer {
+        width: 70%;
+    }
+
+    .newsletter-layer a {
+        padding: 1.3rem 2rem;
+    }
+
+    .details {
+        width: 37%;
+    }
+
+    .touch{
+        width: 30%;
+    }
+
+    .quick-links {
+        width: 37%;
+    }
+
+    .subscribe {
+        width: 40%;
+    }
+
 }
 
 @media (max-width: 617px) {
@@ -703,4 +769,14 @@ span
     .about-img img {
         width: 90vw;
     }
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-iconTop {
+        margin-bottom: 2rem;
+    }
 }
+
