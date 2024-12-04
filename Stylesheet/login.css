@@ -292,15 +292,17 @@ body{
 }
 
 .footer {
+    position: absolute;
     width: 100%;
-    height: auto;
+    height: 100dvh;
     display: flex;
+    align-items: flex-end;
     flex-wrap: wrap;
     box-sizing: border-box;
     overflow: hidden;
     justify-content: space-between;
     padding: 1rem 4rem;
-    margin-top: 4rem;
+    margin-top: 0rem;
     z-index: 100;
 }
 
