@@ -38,6 +38,15 @@ function passOnly(input) {
     input.value = input.value.replace(regex, "");
 };
 
+function numOnly(input) {
+    var regex = /[^0-9]/g;
+    input.value = input.value.replace(regex, "");
+    
+    if (input.value.length > 10) {
+        input.value = input.value.substring(0, 10);
+    }
+};
+
 eyeicon.onclick = function(){
     if(password.type === "password") {
         password.type = "text";
